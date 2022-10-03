@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace TemplatePaster
@@ -13,6 +8,8 @@ namespace TemplatePaster
     /// </summary>
     public partial class App : Application
     {
+        private MainWindow win = new MainWindow();
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -27,7 +24,8 @@ namespace TemplatePaster
             {
                 Visible = true,
                 Icon = new System.Drawing.Icon(icon),
-                Text = "TemplatePaster"  // ツールチップに表示される文字列
+                Text = "TemplatePaster",  // ツールチップに表示される文字列
+                ContextMenuStrip = menu
             };
 
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_Click);
@@ -37,13 +35,20 @@ namespace TemplatePaster
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                var wnd = new MainWindow();
-                wnd.Show();
+                // ウィンドウ表示&最前面に持ってくる
+                if (win.WindowState == System.Windows.WindowState.Minimized)
+                    win.WindowState = System.Windows.WindowState.Normal;
+
+                win.Show();
+                win.Activate();
+                // タスクバーでの表示をする
+                win.ShowInTaskbar = true;
             }
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            win.unregisterHotKey();
             Shutdown();
         }
     }
