@@ -8,30 +8,36 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\10042000536\\.nuget\\packages\\": {}
+    "C:\\Users\\10042000546\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\10042000536\\Documents\\Development\\TempPaster\\TemplatePaster\\TemplatePaster.csproj",
+      "projectUniqueName": "C:\\Git2\\TemplatePaster\\TemplatePaster\\TemplatePaster.csproj",
       "projectName": "TemplatePaster",
-      "projectPath": "C:\\Users\\10042000536\\Documents\\Development\\TempPaster\\TemplatePaster\\TemplatePaster.csproj",
-      "packagesPath": "C:\\Users\\10042000536\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\10042000536\\Documents\\Development\\TempPaster\\TemplatePaster\\obj\\",
+      "projectPath": "C:\\Git2\\TemplatePaster\\TemplatePaster\\TemplatePaster.csproj",
+      "packagesPath": "C:\\Users\\10042000546\\.nuget\\packages\\",
+      "outputPath": "C:\\Git2\\TemplatePaster\\TemplatePaster\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\10042000536\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\10042000546\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Git\\3rdPartyLibs\\nuget-packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\削除OK\\デバッグパッケージ": {},
+        "V:\\DebugPackages": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://lib-packages.nextdesign.app/nuget": {},
+        "https://nuget.pkg.github.com/miles-team/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -43,6 +49,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -61,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.423\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -35,14 +35,7 @@ namespace TemplatePaster
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                // ウィンドウ表示&最前面に持ってくる
-                if (win.WindowState == System.Windows.WindowState.Minimized)
-                    win.WindowState = System.Windows.WindowState.Normal;
-
-                win.Show();
-                win.Activate();
-                // タスクバーでの表示をする
-                win.ShowInTaskbar = true;
+                win.ShowWindow(win);
             }
         }
 

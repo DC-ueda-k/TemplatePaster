@@ -70,14 +70,7 @@ namespace TemplatePaster
             switch (msg.wParam.ToInt32())
             {
                 case HOTKEY_ID1:
-                    // ウィンドウ表示&最前面に持ってくる
-                    if (this.WindowState == System.Windows.WindowState.Minimized)
-                        this.WindowState = System.Windows.WindowState.Normal;
-
-                    this.Show();
-                    this.Activate();
-                    // タスクバーでの表示をする
-                    this.ShowInTaskbar = true;
+                    ShowWindow(this);
                     break;
                 default:
                     break;
@@ -98,6 +91,20 @@ namespace TemplatePaster
             // HotKey解除
             UnregisterHotKey(WindowHandle, HOTKEY_ID1);
             ComponentDispatcher.ThreadPreprocessMessage -= ComponentDispatcher_ThreadPreprocessMessage;
+        }
+
+        public void ShowWindow(MainWindow win)
+		{
+            // ウィンドウ表示&最前面に持ってくる
+            if (win.WindowState == System.Windows.WindowState.Minimized)
+			{
+                win.WindowState = System.Windows.WindowState.Normal;
+            }
+
+            win.Show();
+            win.Activate();
+            // タスクバーでの表示をする
+            win.ShowInTaskbar = true;
         }
     }
 }
