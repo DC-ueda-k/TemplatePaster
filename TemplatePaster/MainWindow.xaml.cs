@@ -3,6 +3,11 @@ using System.Windows;
 using System.Windows.Input;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Windows.Forms;
+using Clipboard = System.Windows.Clipboard;
+using MessageBox = System.Windows.MessageBox;
 
 namespace TemplatePaster
 {
@@ -48,12 +53,26 @@ namespace TemplatePaster
             // HotKeyを設定
             SetUpHotKey();
             ComponentDispatcher.ThreadPreprocessMessage += ComponentDispatcher_ThreadPreprocessMessage;
+
+            // 仮データを作成
+            var pasteObjects = new ObservableCollection<PasteObject> {
+                    new PasteObject() { Name = "メールアドレス", PasteString = "hogehoge@sample.com" },
+                    new PasteObject() { Name = "ライセンスキー", PasteString = "AXLLLEIX123X"},
+                    };
+            PasteObjectGrid.ItemsSource = pasteObjects;
+
+            // データグリッドの先頭行を選択
+            PasteObjectGrid.Focus();
+            if (pasteObjects.Count > 0)
+            {
+                PasteObjectGrid.SelectedIndex = 0;
+            }
         }
 
         // HotKey登録
         private void SetUpHotKey()
         {
-            // Alt +  をHotKeyとして登録。
+            // Ctrl + 1 をHotKeyとして登録。
             var result1 = RegisterHotKey(WindowHandle, HOTKEY_ID1, (int)ModifierKeys.Control, KeyInterop.VirtualKeyFromKey(Key.D1));
             if (result1 == 0)
             {
@@ -105,6 +124,29 @@ namespace TemplatePaster
             win.Activate();
             // タスクバーでの表示をする
             win.ShowInTaskbar = true;
+        }
+
+        /// <summary>
+        /// グリッド行ダブルクリック時の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var row = (DataGridRow)sender;
+            var data = (PasteObject)row.DataContext;
+
+            // MessageBox.Show(data.PasteString);
+
+            // クリップボードに貼り付け文字列をコピー
+            Clipboard.SetText(data.PasteString);
+
+            // 貼り付けウィンドウを閉じる
+            this.WindowState = System.Windows.WindowState.Minimized;
+            this.ShowInTaskbar = false;
+
+            // Ctrl + V キーストロークを送る
+            SendKeys.SendWait("^v");
         }
     }
 }

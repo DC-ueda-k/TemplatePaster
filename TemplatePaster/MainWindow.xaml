@@ -7,7 +7,15 @@
         xmlns:local="clr-namespace:TemplatePaster"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DataGrid x:Name="PasteObjectGrid" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="表示名" Binding="{Binding Name}"/>
+            <DataGridTextColumn Header="貼り付け文字列" Binding="{Binding PasteString}"/>
+        </DataGrid.Columns>
+        <DataGrid.ItemContainerStyle>
+            <Style TargetType="DataGridRow">
+                <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+            </Style>
+        </DataGrid.ItemContainerStyle>
+    </DataGrid>
 </Window>

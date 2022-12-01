@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "grQzTLe1SG9TIKFOhOl22rWFAAxJVhtEqr8Fw8DxnyQgGhazi4mLpEb5iH2vD8u2WD4KrYhku3GTKpIL75p3sA==",
+  "dgSpecHash": "QgtatF+aNrtN18ffthOF4fEeeXjcLEEN8J6TVGQO1JpboafIgMY0vkczFzeHoXt8ePShcePpDOKM0etF6y/5jg==",
   "success": true,
-  "projectFilePath": "C:\\Git2\\TemplatePaster\\TemplatePaster\\TemplatePaster.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\10042000536\\Documents\\Development\\TemplatePaster\\TemplatePaster\\TemplatePaster.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\10042000536\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.30\\microsoft.netcore.app.host.win-x64.3.1.30.nupkg.sha512"
+  ],
   "logs": []
 }
