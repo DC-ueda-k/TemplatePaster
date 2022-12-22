@@ -57,3 +57,5 @@ C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Deb
 C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaster.dll
 C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaster.pdb
 C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaster.genruntimeconfig.cache
+C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaster.csproj.CopyComplete

@@ -7,15 +7,26 @@
         xmlns:local="clr-namespace:TemplatePaster"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <DataGrid x:Name="PasteObjectGrid" AutoGenerateColumns="False">
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="表示名" Binding="{Binding Name}"/>
-            <DataGridTextColumn Header="貼り付け文字列" Binding="{Binding PasteString}"/>
-        </DataGrid.Columns>
-        <DataGrid.ItemContainerStyle>
-            <Style TargetType="DataGridRow">
-                <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
-            </Style>
-        </DataGrid.ItemContainerStyle>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <ToolBar Grid.Row="0">
+      <Button Click="EditButtonClick">編集</Button>
+    </ToolBar>
+    <DataGrid x:Name="PasteObjectGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="名前" Binding="{Binding Name}"/>
+        <DataGridTextColumn Header="貼り付け文字列" Binding="{Binding PasteString}"/>
+      </DataGrid.Columns>
+      <DataGrid.ItemContainerStyle>
+        <Style TargetType="DataGridRow">
+          <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+          <EventSetter Event="KeyDown" Handler="Row_KeyDown" />
+        </Style>
+      </DataGrid.ItemContainerStyle>
     </DataGrid>
+  </Grid>
 </Window>

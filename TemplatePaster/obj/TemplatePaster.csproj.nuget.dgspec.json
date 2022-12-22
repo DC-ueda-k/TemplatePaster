@@ -28,7 +28,8 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "C:\\development\\POPublic\\Berkley\\Versions\\V5.6\\ApiClientSdk\\Sdk\\TimeTrackerApiClient\\bin\\Debug": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/miles-team/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -45,6 +46,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
