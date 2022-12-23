@@ -45,6 +45,8 @@ namespace TemplatePaster
     [DllImport("user32.dll")]
     private static extern int UnregisterHotKey(IntPtr hWnd, int id);
 
+    private ObservableCollection<PasteObject> pasteObjects;
+
     public MainWindow()
     {
       InitializeComponent();
@@ -61,7 +63,7 @@ namespace TemplatePaster
       var pasteObjectConfigStr = ReadPasteObjectConfigFile();
 
       // 設定ファイルをPasteObject型に変換
-      var pasteObjects = JsonConvert.DeserializeObject<ObservableCollection<PasteObject>>(pasteObjectConfigStr);
+      pasteObjects = JsonConvert.DeserializeObject<ObservableCollection<PasteObject>>(pasteObjectConfigStr);
       if (pasteObjects == null)
       {
         pasteObjects = new ObservableCollection<PasteObject>();
@@ -195,6 +197,19 @@ namespace TemplatePaster
 
       // Ctrl + V キーストロークを送る
       SendKeys.SendWait("^v");
+    }
+
+    /// <summary>
+    /// 追加ボタン押下時
+    /// </summary>
+    private void AddButtonClick(object sender, RoutedEventArgs e)
+    {
+      var addDialog = new AddDialog((PasteObject po) =>
+      {
+        pasteObjects.Add(po);
+      });
+      addDialog.Owner = GetWindow(this);
+      addDialog.Show();
     }
 
     /// <summary>

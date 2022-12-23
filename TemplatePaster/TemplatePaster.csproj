@@ -19,4 +19,17 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="AddDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="AddDialog.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

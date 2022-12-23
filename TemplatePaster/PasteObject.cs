@@ -7,7 +7,7 @@ namespace TemplatePaster
   /// <summary>
   /// 貼り付けオブジェクト
   /// </summary>
-  internal class PasteObject
+  public class PasteObject
   {
     /// <summary>
     /// 表示名
