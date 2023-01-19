@@ -16,6 +16,7 @@
     <ToolBar Grid.Row="0">
       <Button Click="AddButtonClick">追加</Button>
       <Button Click="EditButtonClick">編集</Button>
+      <Button Click="DeleteButtonClick">削除</Button>
     </ToolBar>
     <DataGrid x:Name="PasteObjectGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
       <DataGrid.Columns>

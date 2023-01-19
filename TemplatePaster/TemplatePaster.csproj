@@ -20,13 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AddDialog.xaml.cs">
+    <Compile Update="ActionDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="AddDialog.xaml">
+    <Page Update="ActionDialog.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

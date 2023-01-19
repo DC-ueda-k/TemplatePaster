@@ -11,6 +11,8 @@ using MessageBox = System.Windows.MessageBox;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using System.IO;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Windows.Shapes;
 
 namespace TemplatePaster
 {
@@ -82,8 +84,8 @@ namespace TemplatePaster
     // HotKey登録
     private void SetUpHotKey()
     {
-      // Ctrl + 1 をHotKeyとして登録。
-      var result1 = RegisterHotKey(WindowHandle, HOTKEY_ID1, (int)ModifierKeys.Control, KeyInterop.VirtualKeyFromKey(Key.D1));
+      // Alt + V をHotKeyとして登録。
+      var result1 = RegisterHotKey(WindowHandle, HOTKEY_ID1, (int)ModifierKeys.Alt, KeyInterop.VirtualKeyFromKey(Key.V));
       if (result1 == 0)
       {
         MessageBox.Show("HotKey1の登録に失敗しました。");
@@ -183,6 +185,30 @@ namespace TemplatePaster
     }
 
     /// <summary>
+    /// PasteObject設定ファイルに書き込む
+    /// </summary>
+    /// <param name="po">書き込むデータ</param>
+    private void WritePasteObjectConfigFile()
+    {
+      try
+      {
+        var filePath = Directory.GetCurrentDirectory() + "\\PasteObjectConfig.json";
+
+        using var sw = new StreamWriter(filePath);
+
+        // JSON データにシリアライズ
+        var jsonData = JsonConvert.SerializeObject(pasteObjects);
+
+        // JSON データをファイルに書き込み
+        sw.Write(jsonData);
+      }
+      catch (Exception ex)
+      {
+        Debug.WriteLine($"failed:{ex.Message}");
+      }
+    }
+
+    /// <summary>
     /// 文字列を貼り付ける
     /// </summary>
     /// <param name="data">貼り付けデータ</param>
@@ -204,9 +230,15 @@ namespace TemplatePaster
     /// </summary>
     private void AddButtonClick(object sender, RoutedEventArgs e)
     {
-      var addDialog = new AddDialog((PasteObject po) =>
+      var addDialog = new ActionDialog((PasteObject po) =>
       {
         pasteObjects.Add(po);
+        WritePasteObjectConfigFile();
+      },
+      new PasteObject()
+      {
+        Name = "",
+        PasteString = ""
       });
       addDialog.Owner = GetWindow(this);
       addDialog.Show();
@@ -217,7 +249,42 @@ namespace TemplatePaster
     /// </summary>
     private void EditButtonClick(object sender, RoutedEventArgs e)
     {
-      MessageBox.Show("aaa");
+      // 選択されている行の取得
+      var editValue = (PasteObject)PasteObjectGrid.CurrentItem;
+      var row = PasteObjectGrid.Items.IndexOf(editValue);
+
+      if (row >= 0)
+      {
+        var editDialog = new ActionDialog((PasteObject po) =>
+        {
+          pasteObjects[row] = po;
+          WritePasteObjectConfigFile();
+        },
+        editValue);
+        editDialog.Owner = GetWindow(this);
+        editDialog.Show();
+      }
+    }
+
+    /// <summary>
+    /// 削除ボタン押下時
+    /// </summary>
+    private void DeleteButtonClick(object sender, RoutedEventArgs e)
+    {
+      if (MessageBox.Show("削除しますか？", "削除", MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+      {
+        return;
+      }
+
+      // 選択されている行の取得
+      var editValue = (PasteObject)PasteObjectGrid.CurrentItem;
+      var row = PasteObjectGrid.Items.IndexOf(editValue);
+
+      if (row >= 0)
+      {
+        pasteObjects.RemoveAt(row);
+        WritePasteObjectConfigFile();
+      }
     }
   }
 }

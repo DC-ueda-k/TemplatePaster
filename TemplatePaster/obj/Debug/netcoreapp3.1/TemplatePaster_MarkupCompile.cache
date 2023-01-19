@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\
+C:\workspace\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\
 TemplatePaster
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\10042000536\Documents\Development\TemplatePaster\TemplatePaster\App.xaml
-3909582700
+C:\workspace\TemplatePaster\TemplatePaster\App.xaml
+2-1064167741
 
-62132287577
-200-1841344968
-AddDialog.xaml;EditDialog.xaml;MainWindow.xaml;
+51135870389
+200854501189
+ActionDialog.xaml;MainWindow.xaml;
 
 False
 

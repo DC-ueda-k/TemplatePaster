@@ -15,24 +15,26 @@ namespace TemplatePaster
   /// <summary>
   /// Dialog.xaml の相互作用ロジック
   /// </summary>
-  public partial class AddDialog : Window
+  public partial class ActionDialog : Window
   {
-    private Action<PasteObject> m_AddAction;
+    private Action<PasteObject> m_Action;
 
-    public AddDialog(Action<PasteObject> addAction)
+    public ActionDialog(Action<PasteObject> addAction, PasteObject initValue)
     {
       InitializeComponent();
-      m_AddAction = addAction;
+      m_Action = addAction;
+      NameTextBox.Text = initValue.Name;
+      PasteStringTextBox.Text = initValue.PasteString;
     }
 
     private void okButton_Click(object sender, RoutedEventArgs e)
     {
-      var addPasteObject = new PasteObject()
+      var pasteObject = new PasteObject()
       {
         Name = NameTextBox.Text,
         PasteString = PasteStringTextBox.Text,
       };
-      m_AddAction(addPasteObject);
+      m_Action(pasteObject);
       this.Close();
     }
 

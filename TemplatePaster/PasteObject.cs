@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,11 +13,13 @@ namespace TemplatePaster
     /// <summary>
     /// 表示名
     /// </summary>
+    [JsonProperty("name")]
     public string Name { get; set; }
 
     /// <summary>
     /// 貼り付け文字列
     /// </summary>
-    public string PasteString  { get; set; }
+    [JsonProperty("pasteString")]
+    public string PasteString { get; set; }
   }
 }
