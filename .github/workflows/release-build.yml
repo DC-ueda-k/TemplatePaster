@@ -20,7 +20,7 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
         
-      - run: ls
+      - run: cd TemplatePaster
 
       # solution ファイルの状態を復元する
       # 例えば、nuget で参照しているファイルを取得するなど
