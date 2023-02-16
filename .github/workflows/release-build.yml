@@ -10,31 +10,33 @@ jobs:
     name: release-build
     runs-on: windows-latest
     steps:
+      # リポジトリからファイルをチェックアウト
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Add msbuild to PATH
+      # msbuild のセットアップ
+      - name: Setup msbuild
         uses: microsoft/setup-msbuild@v1.0.2
         
       # nuget のセットアップをする
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
-        
-      - run: cd TemplatePaster
 
       # solution ファイルの状態を復元する
-      # 例えば、nuget で参照しているファイルを取得するなど
       - name: Restore the application
-        run: msbuild /t:Restore /p:Configuration=Release
+        run: msbuild TemplatePaster\TemplatePaster.sln /t:Restore /p:Configuration=Release
 
+      # Releaseビルド実行
       - name: Build solution
         run: |
           msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\relase" /p:Configuration=Release
       
+      # Release Zipファイル生成
       - name: Zip build file
         run: |
           zip -r release.zip .\release
       
+      # GithubにReleaseを生成
       - name: Create release
         id: create_release
         uses: actions/create-release@v1.0.0
@@ -50,6 +52,7 @@ jobs:
           draft: false
           prerelease: false
       
+      # 生成したReleaseにZipをアップロード
       - name: Upload Release Asset
         id: upload-release-asset-windows
         uses: actions/upload-release-asset@v1.0.2
