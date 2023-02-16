@@ -53,6 +53,8 @@ jobs:
           draft: false
           prerelease: false
       
+      - run: ls
+      
       # 生成したReleaseにZipをアップロード
       - name: Upload Release Asset
         id: upload-release-asset-windows
@@ -61,6 +63,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release.zip
+          asset_path: ./TemplatePaster/release.zip
           asset_name: TemplatePaster.zip
           asset_content_type: application/zip
