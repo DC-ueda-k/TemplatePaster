@@ -17,7 +17,8 @@ jobs:
 
       - name: Build solution
         run: |
-          msbuild .\TemplatePaster\TemplatePaster.sln /t:build /property:OutputPath=".\relase"
+          msbuild .\TemplatePaster.sln /t:build /property:OutputPath=".\relase"
+          shell: cmd
       
       - name: Zip build file
         run: |
