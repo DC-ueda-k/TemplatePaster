@@ -2,7 +2,8 @@ name: release
 
 on:
   push:
-    branches: [ master ]
+    branches:
+    - master
     
 jobs:
   build:
@@ -18,7 +19,6 @@ jobs:
       - name: Build solution
         run: |
           msbuild .\TemplatePaster.sln /t:build /property:OutputPath=".\relase"
-          shell: cmd
       
       - name: Zip build file
         run: |
