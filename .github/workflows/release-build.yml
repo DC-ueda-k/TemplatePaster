@@ -29,10 +29,7 @@ jobs:
       # Releaseビルド実行
       - name: Build solution
         run: |
-          msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\relase" /p:Configuration=Release
-          
-      - run: ls
-        working-directory: ./TemplatePaster
+          msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\release" /p:Configuration=Release
         
       # Release Zipファイル生成
       - name: Zip build file
