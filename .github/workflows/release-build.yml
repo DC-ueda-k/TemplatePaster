@@ -34,7 +34,7 @@ jobs:
       # Release Zipファイル生成
       - name: Zip build file
         run: |
-          zip -r release.zip .\release
+          powershell compress-archive .\release\* release.zip
       
       # GithubにReleaseを生成
       - name: Create release
@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release/release.zip
+          asset_path: release.zip
           asset_name: TemplatePaster.zip
           asset_content_type: application/zip
