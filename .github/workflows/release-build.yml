@@ -11,10 +11,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
+        
+      # nuget のセットアップをする
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+
+      # solution ファイルの状態を復元する
+      # 例えば、nuget で参照しているファイルを取得するなど
+      - name: Restore the application
+        run: msbuild /t:Restore /p:Configuration=Release
 
       - name: Build solution
         run: |
