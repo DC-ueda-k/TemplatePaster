@@ -19,6 +19,8 @@ jobs:
       # nuget のセットアップをする
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
+        
+      - run: ls -a
 
       # solution ファイルの状態を復元する
       # 例えば、nuget で参照しているファイルを取得するなど
@@ -27,7 +29,7 @@ jobs:
 
       - name: Build solution
         run: |
-          msbuild TemplatePaster\TemplatePaster.sln /t:build /property:OutputPath=".\relase"
+          msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\relase" /p:Configuration=Release
       
       - name: Zip build file
         run: |
