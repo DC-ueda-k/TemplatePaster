@@ -35,7 +35,7 @@ jobs:
       - name: Zip build file
         run: |
           powershell compress-archive .\release\* release.zip
-          working-directory: ./TemplatePaster
+        working-directory: ./TemplatePaster
       
       # GithubにReleaseを生成
       - name: Create release
