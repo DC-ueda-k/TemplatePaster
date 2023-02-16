@@ -31,13 +31,14 @@ jobs:
         run: |
           msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\relase" /p:Configuration=Release
           
-      - run: cd ./TemplatePaster
       - run: ls
-      
+        working-directory: ./TemplatePaster
+        
       # Release Zipファイル生成
       - name: Zip build file
         run: |
           powershell compress-archive .\release\* release.zip
+          working-directory: ./TemplatePaster
       
       # GithubにReleaseを生成
       - name: Create release
