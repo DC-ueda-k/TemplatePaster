@@ -54,8 +54,6 @@ jobs:
           draft: false
           prerelease: false
       
-      - run: ls
-      
       # 生成したReleaseにZipをアップロード
       - name: Upload Release Asset
         id: upload-release-asset-windows
