@@ -87,3 +87,10 @@ C:\workspace\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaste
 C:\workspace\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\TemplatePaster.genruntimeconfig.cache
 C:\workspace\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\ActionDialog.g.cs
 C:\workspace\TemplatePaster\TemplatePaster\obj\Debug\netcoreapp3.1\ActionDialog.baml
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.exe
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.deps.json
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.runtimeconfig.json
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.runtimeconfig.dev.json
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.dll
+C:\workspace\TemplatePaster\TemplatePaster\relase\TemplatePaster.pdb
+C:\workspace\TemplatePaster\TemplatePaster\relase\Newtonsoft.Json.dll

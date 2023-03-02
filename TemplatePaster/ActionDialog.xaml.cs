@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TemplatePaster
 {
@@ -27,7 +18,7 @@ namespace TemplatePaster
       PasteStringTextBox.Text = initValue.PasteString;
     }
 
-    private void okButton_Click(object sender, RoutedEventArgs e)
+    private void OkButton_Click(object sender, RoutedEventArgs e)
     {
       var pasteObject = new PasteObject()
       {
@@ -35,14 +26,20 @@ namespace TemplatePaster
         PasteString = PasteStringTextBox.Text,
       };
       m_Action(pasteObject);
-      this.Close();
+      Close();
     }
 
-    private void cancelButton_Click(object sender, RoutedEventArgs e)
+    private void CancelButton_Click(object sender, RoutedEventArgs e)
     {
       NameTextBox.Text = "";
       PasteStringTextBox.Text = "";
-      this.Close();
+      Close();
+    }
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+      e.Cancel = true;
+      Hide();
     }
   }
 }

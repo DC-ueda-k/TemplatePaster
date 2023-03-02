@@ -239,8 +239,10 @@ namespace TemplatePaster
       {
         Name = "",
         PasteString = ""
-      });
-      addDialog.Owner = GetWindow(this);
+      })
+      {
+        Owner = GetWindow(this)
+      };
       addDialog.Show();
     }
 
@@ -260,8 +262,10 @@ namespace TemplatePaster
           pasteObjects[row] = po;
           WritePasteObjectConfigFile();
         },
-        editValue);
-        editDialog.Owner = GetWindow(this);
+        editValue)
+        {
+          Owner = GetWindow(this)
+        };
         editDialog.Show();
       }
     }
@@ -271,7 +275,8 @@ namespace TemplatePaster
     /// </summary>
     private void DeleteButtonClick(object sender, RoutedEventArgs e)
     {
-      if (MessageBox.Show("削除しますか？", "削除", MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+      var messageBoxResult = MessageBox.Show(GetWindow(this), "削除しますか？", "削除", MessageBoxButton.OKCancel);
+      if (messageBoxResult == MessageBoxResult.Cancel)
       {
         return;
       }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\10042000536\Documents\Development\TempPaster\TemplatePaster\obj\Release\netcoreapp3.1\
+C:\workspace\TemplatePaster\TemplatePaster\obj\Release\netcoreapp3.1\
 TemplatePaster
 none
 false
-TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
-C:\Users\10042000536\Documents\Development\TempPaster\TemplatePaster\App.xaml
-11407045341
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;
+C:\workspace\TemplatePaster\TemplatePaster\App.xaml
+2-1064167741
 
-5-104987690
-192-1533232326
-MainWindow.xaml;
+7-2030915040
+200854501189
+ActionDialog.xaml;MainWindow.xaml;
 
-False
+True
 
