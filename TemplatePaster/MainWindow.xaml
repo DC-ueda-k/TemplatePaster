@@ -21,7 +21,23 @@
     <DataGrid x:Name="PasteObjectGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
       <DataGrid.Columns>
         <DataGridTextColumn Header="名前" Binding="{Binding Name}"/>
-        <DataGridTextColumn Header="貼り付け文字列" Binding="{Binding PasteString}"/>
+        <DataGridTextColumn Header="貼り付け文字列" Binding="{Binding PasteString}">
+          <DataGridTextColumn.CellStyle>
+            <Style TargetType="DataGridCell">
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding IsHidden}" Value="True">
+                  <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                      <DataTemplate>
+                        <PasswordBox  />
+                      </DataTemplate>
+                    </Setter.Value>
+                  </Setter>
+                </DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </DataGridTextColumn.CellStyle>
+        </DataGridTextColumn>
       </DataGrid.Columns>
       <DataGrid.ItemContainerStyle>
         <Style TargetType="DataGridRow">
