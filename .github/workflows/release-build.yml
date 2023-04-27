@@ -1,6 +1,7 @@
 name: release
 
 # v*.* のタグがPushされた場合にこのワークフローは動作します
+# 参考サイト：https://knhk.hatenablog.com/entry/2020/05/19/173000
 on:
   push:
     tags:
@@ -28,6 +29,7 @@ jobs:
         run: msbuild TemplatePaster\TemplatePaster.sln /t:Restore /p:Configuration=Release
 
       # Releaseビルド実行
+      # 参考サイト：https://zenn.dev/shimat/articles/d9ed0345c9866e
       - name: Build solution
         run: |
           msbuild TemplatePaster\TemplatePaster.sln /t:build /p:OutputPath=".\release" /p:Configuration=Release
